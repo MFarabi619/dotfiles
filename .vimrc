@@ -33,7 +33,10 @@ set autoindent
 set clipboard=unnamedplus
  
 " Map 'jk' to 'Esc'
-inoremap jk <Esc>
+inoremap jk <Esc>:w<CR>
+
+"Map 'jj' to ':wq'
+inoremap jj <Esc>:wq<CR>
 
 "Disable back and swap files
 set nobackup
