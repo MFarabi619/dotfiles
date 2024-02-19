@@ -130,3 +130,24 @@ bindkey '^H' backward-kill-word
 # Control + arrows
 bindkey ";5C" forward-word
 bindkey ";5D" backward-word
+
+# Make ctrl + backspace delete previous word
+bindkey -e
+# Control + backspace
+bindkey '^H' backward-kill-word
+# Control + arrows
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
+
+# Enable vi mode and start in insert mode
+bindkey -v
+
+# Show mode indicator
+function zle-line-init zle-keymap-select {
+  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+  RPS1='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
