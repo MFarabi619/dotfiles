@@ -131,14 +131,6 @@ bindkey '^H' backward-kill-word
 bindkey ";5C" forward-word
 bindkey ";5D" backward-word
 
-# Make ctrl + backspace delete previous word
-bindkey -e
-# Control + backspace
-bindkey '^H' backward-kill-word
-# Control + arrows
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
-
 # Enable vi mode and start in insert mode
 bindkey -v
 
