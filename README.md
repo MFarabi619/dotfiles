@@ -49,3 +49,14 @@ Source zsh again:
 ```
 source ~/.zshrc
 ```
+
+Install GNU Stow:
+```
+sudo apt-get install stow
+```
+
+Navigate to dotfiles directory and run stow to create symlinks:
+```
+cd ~/dotfiles
+stow .
+```
