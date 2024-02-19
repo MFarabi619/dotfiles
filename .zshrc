@@ -122,3 +122,11 @@ export NVM_DIR="$HOME/.nvm"
 # Alias for node options
 # alias legacy-node="NODE_OPTIONS=--openssl-legacy-provider"
 export NODE_OPTIONS=--openssl-legacy-provider
+
+# Make ctrl + backspace delete previous word
+bindkey -e
+# Control + backspace
+bindkey '^H' backward-kill-word
+# Control + arrows
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
