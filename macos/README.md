@@ -66,11 +66,11 @@ stow .
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/a1a5e18b-1c3b-4708-9be2-4a3dc886a8b9)
 
 
-## Re-map modifier keys for external keyboard
+## Re-map modifier keys for external keyboard (skip if using karabiner)
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/27127400-06bf-49c9-92f7-ae9e2563865b)
 
-## Re-map modifier keys for Apple Internal Keyboard
+## Re-map modifier keys for Apple Internal Keyboard (skip if using karabiner)
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/37bab098-baf7-408a-8899-aeb1c54994bc)
 
@@ -88,6 +88,9 @@ stow .
 
 
 ## [AltTab](https://alt-tab-macos.netlify.app/) to switch between windows
+```
+brew install --cask alt-tab
+```
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/937040c0-3129-419d-a61d-9180302437a2)
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/66bc62b4-f6d4-4664-87dd-8a5ef8430727)
@@ -103,6 +106,9 @@ stow .
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/09ce8880-d11a-45f3-85c7-c4d691f4ec55)
 
 ## BetterTouchTool 
+```
+brew install --cask bettertouchtool
+```
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/0710fc72-778e-4cf2-9634-a4b188990441)
 
@@ -115,6 +121,12 @@ stow .
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/f3c9b911-f0ab-4a16-b085-9c53c1800bbd)
 
 
+## If using Karabiner, here's a [config file](https://ke-complex-modifications.pqrs.org/#pc_shortcuts) for Mac to Windows keyboard mappings
+```
+brew install --cask karabiner-elements
+```
+### Re-map caps lock to ctrl
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/93f379ae-d2ac-4b08-a531-33d4fd226379)
 
-
+### Delete the ctrl+tab -> alt+tab mapping so that it doesn't conflict with AltTab
 
