@@ -60,3 +60,33 @@ Navigate to dotfiles directory and run stow to create symlinks:
 cd ~/dotfiles
 stow .
 ```
+
+## Re-map modifier keys for external keyboard
+
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/27127400-06bf-49c9-92f7-ae9e2563865b)
+
+## Re-map modifier keys for Apple Internal Keyboard
+
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/4e577aae-dbb8-4c05-8d3c-21a15179b749)
+
+
+## [MonitorControl](https://formulae.brew.sh/cask/monitorcontrol) for adjusting brightness across Monitors.
+
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/937040c0-3129-419d-a61d-9180302437a2)
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/f6c90820-d8c3-40e7-b377-e70d5f6d4667)
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/8c74ba49-3173-4deb-b194-a4db7e283b51)
+
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/9e330201-3ae9-4310-b3bc-383a3547282d)
+
+## Settings
+## Display brightness
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/ec6f256d-2cca-4979-95bb-310616400a56)
+
+## Screenshots
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/09ce8880-d11a-45f3-85c7-c4d691f4ec55)
+
+## BetterTouchTool to switch command+backspace and alt+backspace behaviour
+
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/0710fc72-778e-4cf2-9634-a4b188990441)
+
+
