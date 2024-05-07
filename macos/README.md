@@ -78,10 +78,16 @@ stow .
 ## [SurfingKeys](https://chromewebstore.google.com/detail/surfingkeys/gfbliohnnapiefjpjlpjnehglfpaknnc?pli=1) for browser
 
 ## [DisplayLink](https://www.synaptics.com/products/displaylink-graphics/downloads/macos) for triple/multi-monitor setup with [StarTech dock](https://www.amazon.ca/Triple-Display-Docking-Station-Universal/dp/B012VKW900/ref=asc_df_B012VKW900/?tag=googleshopc0c-20&linkCode=df0&hvadid=293004044609&hvpos=&hvnetw=g&hvrand=8700524289148619145&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000694&hvtargid=pla-349910448191&mcid=3cd8b0ad72503a5b9e6b12a41cafff96&th=1)
+```
+brew install --cask displaylink
+```
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/be887f39-0dd2-4ebd-aa41-5ca444cf3425)
 
 ## [MonitorControl](https://formulae.brew.sh/cask/monitorcontrol) for adjusting brightness across Monitors.
+```
+brew install --cask monitorcontrol
+```
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/04195e2d-8860-4c6d-8e92-c3c3364c6741)
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/b30e6994-61ec-410f-b65a-980dd8c71291)
