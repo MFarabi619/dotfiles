@@ -184,15 +184,20 @@ Before installing LazyVim, install its required dependencies.
 
 [LazyGit](https://github.com/jesseduffield/lazygit)
 
-[ripgrep](https://github.com/BurntSushi/ripgrep)
 ```bash
-https://formulae.brew.sh/formula/ripgrep
+brew install lazygit
+```
+
+[ripgrep](https://github.com/BurntSushi/ripgrep)
+
+```bash
+brew install ripgrep
 ```
 
 [fd](https://github.com/sharkdp/fd)
 
 ```bash
-https://formulae.brew.sh/formula/fd
+brew install fd
 ```
 
 ```bash
