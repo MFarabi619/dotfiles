@@ -1,62 +1,84 @@
-# dotfiles
-A collection of my dotfile configurations used across different operating systems
+# MacOS/Unix
+A collection of my dotfile configurations used for MacOs/Unix.
 
 [Terminal Setup for Mac](https://www.youtube.com/watch?v=CF1tMjvHDRA&t=46s&ab_channel=JoseanMartinez)
+[How To Use A Tiling Window Manager On MacOs | Yabai Ultimate Guide](https://www.youtube.com/watch?v=k94qImbFKWE)
+[7 Amazing CLI Tools You Need To Try](https://www.youtube.com/watch?v=mmqDYw9C30I&t=721s)
 
-### Install and set up Zsh
-```
-sudo apt update
-sudo apt install zsh -y
+### Install [Homebrew](https://brew.sh/)
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# After installation is complete, run the commands that Homebrew tells you run in the Next steps section.
 ```
 
-Install PowerLevel10K Theme for Oh My Zsh
+### Install [iTerm2](https://iterm2.com/)
+```bash
+brew install --cask iterm2
 ```
+
+### Install [Git](https://git-scm.com/)
+```bash
+brew install git
+```
+
+### Install [Zsh](https://zsh.sourceforge.io/)
+```bash
+brew install zsh
+```
+
+### Install [Oh My Zsh](https://ohmyz.sh/)
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Install [PowerLevel10K Theme for Oh My Zsh]()
+```bash
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
 Open `~/.zshrc` and change the the value of `ZSH_THEME`:
-```
+```bash
 ZSH_THEME="powerlevel10k/powerlevel10k
 ```
 
 Source `.zshrc`:
-```
+```bash
 source ~/.zshrc
 ```
 
 Configure PowerLevel10K
-```
+```bash
 p10k configure
 ```
 
 ### Install ZSH Plugins
 Install zsh-autosuggestions:
-```
+```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
 Install zsh-syntax-highlighting:
-```
+```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 Open `~/.zshrc` and modify the plugins line:
-```
+```bash
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 ```
 
 Source zsh again:
-```
+```bash
 source ~/.zshrc
 ```
 
 Install GNU Stow:
-```
+```bash
 sudo apt-get install stow
 ```
 
 Navigate to dotfiles directory and run stow to create symlinks:
-```
+```bash
 cd ~/dotfiles
 stow .
 ```
@@ -73,7 +95,7 @@ stow .
 <h3>
 Here's a [config file](https://ke-complex-modifications.pqrs.org/#pc_shortcuts) for Mac to Windows keyboard mappings
 </h3>
-```
+```bash
 brew install --cask karabiner-elements
 ```
 <h3>
@@ -98,7 +120,7 @@ Re-map modifier keys for Apple Internal Keyboard
 <h3>  
 BetterTouchTool
 </h3> 
-```
+```bash
 brew install --cask bettertouchtool
 ```
 
@@ -120,14 +142,14 @@ Map cmd+tab to ctrl+tab for tab switching on browser
 ## [SurfingKeys](https://chromewebstore.google.com/detail/surfingkeys/gfbliohnnapiefjpjlpjnehglfpaknnc?pli=1) for browser
 
 ## [DisplayLink](https://www.synaptics.com/products/displaylink-graphics/downloads/macos) for triple/multi-monitor setup with [StarTech dock](https://www.amazon.ca/Triple-Display-Docking-Station-Universal/dp/B012VKW900/ref=asc_df_B012VKW900/?tag=googleshopc0c-20&linkCode=df0&hvadid=293004044609&hvpos=&hvnetw=g&hvrand=8700524289148619145&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000694&hvtargid=pla-349910448191&mcid=3cd8b0ad72503a5b9e6b12a41cafff96&th=1)
-```
+```bash
 brew install --cask displaylink
 ```
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/be887f39-0dd2-4ebd-aa41-5ca444cf3425)
 
 ## [MonitorControl](https://formulae.brew.sh/cask/monitorcontrol) for adjusting brightness across Monitors.
-```
+```bash
 brew install --cask monitorcontrol
 ```
 
@@ -136,7 +158,7 @@ brew install --cask monitorcontrol
 
 
 ## [AltTab](https://alt-tab-macos.netlify.app/) to switch between windows
-```
+```bash
 brew install --cask alt-tab
 ```
 
@@ -152,5 +174,6 @@ brew install --cask alt-tab
 ## Screenshot with cmd+shift+s
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/09ce8880-d11a-45f3-85c7-c4d691f4ec55)
+
 
 
