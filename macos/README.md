@@ -95,6 +95,7 @@ stow .
 <h3>
 Here's a [config file](https://ke-complex-modifications.pqrs.org/#pc_shortcuts) for Mac to Windows keyboard mappings
 </h3>
+  
 ```bash
 brew install --cask karabiner-elements
 ```
@@ -120,22 +121,16 @@ Re-map modifier keys for Apple Internal Keyboard
 <h3>  
 BetterTouchTool
 </h3> 
+
 ```bash
 brew install --cask bettertouchtool
 ```
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/0710fc72-778e-4cf2-9634-a4b188990441)
-<h4>
-  Switch command+backspace and alt+backspace behaviour
-</h4>
 
-![image](https://github.com/MFarabi619/dotfiles/assets/54924158/5f6fd866-3442-4659-a0c4-0d0fb0cc33cf)
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/9cb029b5-db83-4c26-b03f-3ee0351d7bba)
 
-<h4>
-Map cmd+tab to ctrl+tab for tab switching on browser
-</h4>
 
-![image](https://github.com/MFarabi619/dotfiles/assets/54924158/f3c9b911-f0ab-4a16-b085-9c53c1800bbd)
 </details>
 
 
