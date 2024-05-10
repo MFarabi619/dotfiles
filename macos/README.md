@@ -2,7 +2,9 @@
 A collection of my dotfile configurations used for MacOs/Unix.
 
 [Terminal Setup for Mac](https://www.youtube.com/watch?v=CF1tMjvHDRA&t=46s&ab_channel=JoseanMartinez)
+
 [How To Use A Tiling Window Manager On MacOs | Yabai Ultimate Guide](https://www.youtube.com/watch?v=k94qImbFKWE)
+
 [7 Amazing CLI Tools You Need To Try](https://www.youtube.com/watch?v=mmqDYw9C30I&t=721s)
 
 ### Install [Homebrew](https://brew.sh/)
