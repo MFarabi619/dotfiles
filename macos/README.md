@@ -13,22 +13,22 @@ Install [Homebrew](https://brew.sh/) for easy package installation
 # After installation is complete, run the commands that Homebrew tells you run in the Next steps section.
 ```
 
-### Install [iTerm2](https://iterm2.com/) to use as default terminal
+Install [iTerm2](https://iterm2.com/) to use as default terminal
 ```bash
 brew install --cask iterm2
 ```
 
-### Install [Git](https://git-scm.com/) for version control
+Install [Git](https://git-scm.com/) for version control
 ```bash
 brew install git
 ```
 
-### Install [Zsh](https://zsh.sourceforge.io/) to use as default
+Install [Zsh](https://zsh.sourceforge.io/) to use as default
 ```bash
 brew install zsh
 ```
 
-### Install [Oh My Zsh](https://ohmyz.sh/), a framework to easily customize the look and feel of zsh
+Install [Oh My Zsh](https://ohmyz.sh/), a framework to easily customize the look and feel of zsh
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
