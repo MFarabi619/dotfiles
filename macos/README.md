@@ -170,5 +170,49 @@ brew install --cask alt-tab
 
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/09ce8880-d11a-45f3-85c7-c4d691f4ec55)
 
+## Install [NeoVim](https://neovim.io/)
 
+```bash
+brew install neovim
+```
+
+## Install [LazyVim](https://www.lazyvim.org/)
+
+Before installing LazyVim, install its required dependencies.
+
+[LazyGit](https://github.com/jesseduffield/lazygit)
+
+[ripgrep](https://github.com/BurntSushi/ripgrep)
+```bash
+https://formulae.brew.sh/formula/ripgrep
+```
+
+[fd](https://github.com/sharkdp/fd)
+
+```bash
+https://formulae.brew.sh/formula/fd
+```
+
+```bash
+# Make a backup of your current Neovim files:
+# required
+mv ~/.config/nvim{,.bak}
+
+# optional but recommended
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+
+# Clone the starter
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+
+# Remove the .git folder, so you can add it to your own repo later
+rm -rf ~/.config/nvim/.git
+
+# Start LazyVim and run `:LazyHealth`
+nvim
+```
+
+TODO: Look at what else needs to be added and add them
+![image](https://github.com/MFarabi619/dotfiles/assets/54924158/fb4299c4-64a2-4f10-864f-50480de0156e)
 
