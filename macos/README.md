@@ -7,33 +7,33 @@ A collection of my dotfile configurations used for MacOs/Unix.
 
 [7 Amazing CLI Tools You Need To Try](https://www.youtube.com/watch?v=mmqDYw9C30I&t=721s)
 
-### Install [Homebrew](https://brew.sh/)
+Install [Homebrew](https://brew.sh/) for easy package installation
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # After installation is complete, run the commands that Homebrew tells you run in the Next steps section.
 ```
 
-### Install [iTerm2](https://iterm2.com/)
+### Install [iTerm2](https://iterm2.com/) to use as default terminal
 ```bash
 brew install --cask iterm2
 ```
 
-### Install [Git](https://git-scm.com/)
+### Install [Git](https://git-scm.com/) for version control
 ```bash
 brew install git
 ```
 
-### Install [Zsh](https://zsh.sourceforge.io/)
+### Install [Zsh](https://zsh.sourceforge.io/) to use as default
 ```bash
 brew install zsh
 ```
 
-### Install [Oh My Zsh](https://ohmyz.sh/)
+### Install [Oh My Zsh](https://ohmyz.sh/), a framework to easily customize the look and feel of zsh
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Install [PowerLevel10K Theme for Oh My Zsh]()
+Install [PowerLevel10K Theme for Oh My Zsh](https://github.com/romkatv/powerlevel10k), a theming system for the Oh My Zsh framework
 ```bash
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
@@ -53,7 +53,7 @@ Configure PowerLevel10K
 p10k configure
 ```
 
-### Install ZSH Plugins
+#### Install ZSH Plugins
 Install zsh-autosuggestions:
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
