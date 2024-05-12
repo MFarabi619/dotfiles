@@ -1,5 +1,5 @@
 # MacOS/Unix
-A collection of my dotfile configurations used for MacOs/Unix.
+A collection of my dotfile configurations used for MacOs/Unix, tailored for a windows-like experience.
 
 [Terminal Setup for Mac](https://www.youtube.com/watch?v=CF1tMjvHDRA&t=46s&ab_channel=JoseanMartinez)
 
