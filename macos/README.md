@@ -92,21 +92,25 @@ stow .
 
 <details>
 <summary>
-<h2>If using Karabiner</h2>
+<h2>If using Karabiner (Don't use it, it bugged out for me from time to time)</h2>
 </summary>
 <h3>
-Here's a [config file](https://ke-complex-modifications.pqrs.org/#pc_shortcuts) for Mac to Windows keyboard mappings
-</h3>
   
+Here's a [config file](https://ke-complex-modifications.pqrs.org/#pc_shortcuts) for Mac to Windows keyboard mappings
+
+</h3>
+
 ```bash
 brew install --cask karabiner-elements
 ```
 <h3>
   Re-map caps lock to ctrl
 </h3>
+
 ![image](https://github.com/MFarabi619/dotfiles/assets/54924158/93f379ae-d2ac-4b08-a531-33d4fd226379)
 
-### Delete the ctrl+tab -> alt+tab mapping so that it doesn't conflict with AltTab
+### Delete the `ctrl+tab -> alt+tab` mapping so that it doesn't conflict with AltTab
+
 </details>
 <details>
 <summary><h2>If not using Karabiner</h2></summary>
