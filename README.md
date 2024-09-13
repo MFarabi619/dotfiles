@@ -1,62 +1,36 @@
 # dotfiles
-A collection of my dotfile configurations used across different operating systems
+A collection of my dotfile configurations used across different operating systems.
 
-[Terminal Setup for Mac](https://www.youtube.com/watch?v=CF1tMjvHDRA&t=46s&ab_channel=JoseanMartinez)
+[Stow has forever changed the way I manage my dotfiles](https://www.youtube.com/watch?v=y6XCebnB9gs)
+[Arch Linux+Hyprland Install](https://www.youtube.com/watch?v=D8D7voS-G_o&t)
 
-### Install and set up Zsh
-```
-sudo apt update
-sudo apt install zsh -y
-```
+## Requirements
 
-Install PowerLevel10K Theme for Oh My Zsh
-```
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-```
+Ensure you have the following installed on your system
 
-Open `~/.zshrc` and change the the value of `ZSH_THEME`:
+### Git
+
 ```
-ZSH_THEME="powerlevel10k/powerlevel10k
+pacman -S git
 ```
 
-Source `.zshrc`:
+### [GNU Stow](https://www.gnu.org/software/stow/)
+
 ```
-source ~/.zshrc
+pacman -S stow
 ```
 
-Configure PowerLevel10K
+## Installation
+
+Check out dotfiles repo in $HOME directory using git
+
 ```
-p10k configure
+$ git clone git@github.com/dreamsofautonomy/dotfiles.git
+$ cd dotfiles
 ```
 
-### Install ZSH Plugins
-Install zsh-autosuggestions:
-```
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-```
+then use GNU stow to create symlinks
 
-Install zsh-syntax-highlighting:
-```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-Open `~/.zshrc` and modify the plugins line:
-```
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
-```
-
-Source zsh again:
-```
-source ~/.zshrc
-```
-
-Install GNU Stow:
-```
-sudo apt-get install stow
-```
-
-Navigate to dotfiles directory and run stow to create symlinks:
-```
-cd ~/dotfiles
-stow .
+``` shell
+stow --adopt .
 ```
