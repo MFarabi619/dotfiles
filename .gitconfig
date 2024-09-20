@@ -7,3 +7,5 @@
 [user]
 	email = mfarabi619@gmail.com
 	name = Mumtahin Farabi
+[http]
+	version = HTTP/2
