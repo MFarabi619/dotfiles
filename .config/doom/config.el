@@ -102,3 +102,7 @@
 ;; Turn on LSP mode
 ;; (lsp-mode)
 
+;; Enable lsp-mode in web-mode
+(add-hook 'web-mode-hook #'lsp)
+(add-hook 'web-mode-hook (lambda () (setq +format-with-lsp t)))
+
