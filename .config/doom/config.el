@@ -113,3 +113,27 @@
 (setq org-directory
       "~/Documents/Obsidian Vault/misc")
 
+(after! org
+  ;; Allow linking to non-headlines in org mode
+  (setq org-link-search-must-match-exact-headline nil)
+
+  ;; Set custom todo keywords
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "INPROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "CANCELLED(c)")))
+
+  ;; Set custom colors for todo keywords
+  (setq org-todo-keyword-faces
+        '(("TODO" :foreground "#7c7c75" :weight normal :underline t)
+          ("INPROGRESS" :foreground "#0098dd" :weight normal :underline t)
+          ("DONE" :foreground "#50a14f" :weight normal :underline t)
+          ("CANCELLED" :foreground "#ff6480" :weight normal :underline t)
+          ("BLOCKED" :foreground "#ff9800" :weight normal :underline t)))
+
+  ;; Set custom colors for priorities
+  (setq org-priority-faces
+        '((?A :foreground "#e45649")
+          (?B :foreground "#da8548")
+          (?C :foreground "#0098dd")))
+
+  )
+
