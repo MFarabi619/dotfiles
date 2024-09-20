@@ -98,3 +98,7 @@
 ;; Move by visual lines instead of physical lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
+;; Turn on LSP mode
+;; (lsp-mode)
+
