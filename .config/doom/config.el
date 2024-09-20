@@ -109,3 +109,7 @@
 (add-hook 'web-mode-hook #'lsp)
 (add-hook 'web-mode-hook (lambda () (setq +format-with-lsp t)))
 
+;; Set directory for org mode
+(setq org-directory
+      "~/Documents/Obsidian Vault/misc")
+
