@@ -75,8 +75,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Open treemacs on the right side instead of the left
-(setq treemacs-position 'right)
+(after! treemacs
+  ;; Open treemacs on the right side instead of the left
+  (setq treemacs-position 'right)
+
+  ;; Configure Treemacs Theme
+  (treemacs-load-theme "nerd-icons"))
+
 
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-default-browser)
