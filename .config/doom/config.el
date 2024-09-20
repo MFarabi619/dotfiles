@@ -137,3 +137,10 @@
 
   )
 
+;; Add icons to priorities
+(use-package! org-fancy-priorities
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("■" "■" "■"))
+  )
+
