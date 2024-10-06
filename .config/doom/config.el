@@ -80,8 +80,9 @@
   (setq treemacs-position 'right)
 
   ;; Configure Treemacs Theme
-  (treemacs-load-theme "nerd-icons"))
-
+  (treemacs-load-theme "nerd-icons")
+  ;; (treemacs-load-theme "Default")
+  )
 
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-default-browser)
