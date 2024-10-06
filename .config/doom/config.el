@@ -32,7 +32,23 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+;; (setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-lantern)
+(setq fancy-splash-image "~/dotfiles/.config/doom/doom-emacs-color2.svg")
+
+;; Custom banner with a quote below it in Doom Emacs dashboard
+(after! doom-dashboard
+  ;; Function to set a banner image (replace with your banner setup)
+  (setq +doom-dashboard-banner-dir "~/.doom.d/banners/")
+  (setq +doom-dashboard-banner-file "your-image-file.png") ;; Set your banner file path here
+
+  ;; Custom text to display after the banner
+  (add-to-list '+doom-dashboard-functions
+               (lambda ()
+                 (insert "\n"
+                         "Do not proceed with a mess; messes just grow with time.\n"
+                         "― Bjarne Stroustrup\n\n"))))
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
