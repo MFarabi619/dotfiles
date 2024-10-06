@@ -1,5 +1,6 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
@@ -165,3 +166,21 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
+;; Detect package manager for web dev project
+(defun my/detect-package-manager ()
+  "Detect if the project is using pnpm, yarn, or npm."
+  (cond
+   ((file-exists-p (expand-file-name "pnpm-lock.yaml" (projectile-project-root))) "pnpm")
+   ((file-exists-p (expand-file-name "yarn.lock" (projectile-project-root))) "yarn")
+   ((file-exists-p (expand-file-name "package-lock.json" (projectile-project-root))) "npm")
+   (t "npm"))) ;; Default to npm if none is found
+
+(defun my/package-manager-run (script)
+  "Run a script from package.json using the detected package manager."
+  (interactive
+   (list (completing-read
+          "Run script: "
+          (npm-mode--available-scripts))))
+  (let* ((package-manager (my/detect-package-manager))
+         (command (concat package-manager " run " script)))
+    (compile command)))
