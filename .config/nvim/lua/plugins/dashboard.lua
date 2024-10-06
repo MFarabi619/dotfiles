@@ -15,7 +15,7 @@ return {
 ██║  ██║██║  ██║╚██████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║
 ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
 
-Do not proceed with a mess; messes just grow with time.” ― Bjarne Stroustrup
+"Do not proceed with a mess; messes just grow with time.” ― Bjarne Stroustrup
     ]]
 
     logo = string.rep("\n", 8) .. logo .. "\n\n"
