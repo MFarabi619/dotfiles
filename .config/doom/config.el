@@ -184,3 +184,7 @@
   (let* ((package-manager (my/detect-package-manager))
          (command (concat package-manager " run " script)))
     (compile command)))
+
+
+;; When viewing a pdf, view it in dark mode
+(add-hook 'pdf-view-mode-hook 'pdf-view-themed-minor-mode)
