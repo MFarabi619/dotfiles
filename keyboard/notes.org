@@ -1,33 +1,17 @@
+* QMK Installation Steps
+
 https://docs.qmk.fm/newbs
 
 sudo pacman -Syu qmk
 
 qmk setup -H ~/dotfiles/qmk_firmware
 
-```
+```sh
 ☒ Could not find qmk_firmware!
 Would you like to clone qmk/qmk_firmware to /home/mfarabi/dotfiles/qmk_firmware? [y/n]
 Would you like to clone qmk/qmk_firmware to /home/mfarabi/dotfiles/qmk_firmware? [y/n] y
 Cloning into '/home/mfarabi/dotfiles/qmk_firmware'...
-Submodule 'lib/chibios' (https://github.com/qmk/ChibiOS) registered for path 'lib/chibios'
-Submodule 'lib/chibios-contrib' (https://github.com/qmk/ChibiOS-Contrib) registered for path 'lib/chibios-contrib'
-Submodule 'lib/googletest' (https://github.com/qmk/googletest) registered for path 'lib/googletest'
-Submodule 'lib/lufa' (https://github.com/qmk/lufa) registered for path 'lib/lufa'
-Submodule 'lib/lvgl' (https://github.com/qmk/lvgl.git) registered for path 'lib/lvgl'
-Submodule 'lib/pico-sdk' (https://github.com/qmk/pico-sdk.git) registered for path 'lib/pico-sdk'
-Submodule 'lib/printf' (https://github.com/qmk/printf) registered for path 'lib/printf'
-Submodule 'lib/vusb' (https://github.com/qmk/v-usb) registered for path 'lib/vusb'
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/chibios'...
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/chibios-contrib'...
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/googletest'...
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/lufa'...
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/lvgl'...
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/pico-sdk'...
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/printf'...
-Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/vusb'...
-Submodule path 'lib/chibios': checked out 'be44b3305f9a9fe5f2f49a4e7b978db322dc463e'
-Submodule path 'lib/chibios-contrib': checked out '77cb0a4f7589f89e724f5e6ecb1d76d514dd1212'
-Submodule 'ext/mcux-sdk' (https://github.com/NXPmicro/mcux-sdk) registered for path 'lib/chibios-contrib/ext/mcux-sdk'
+bmodule 'ext/mcux-sdk' (https://github.com/NXPmicro/mcux-sdk) registered for path 'lib/chibios-contrib/ext/mcux-sdk'
 Cloning into '/home/mfarabi/dotfiles/qmk_firmware/lib/chibios-contrib/ext/mcux-sdk'...
 Submodule path 'lib/chibios-contrib/ext/mcux-sdk': checked out '102c27d7cc2aaac87c133702e7829a105e0cb433'
 Submodule path 'lib/googletest': checked out 'e2239ee6043f73722e7aa812a459f54a28552929'
@@ -65,7 +49,7 @@ Would you like to set /home/mfarabi/dotfiles/qmk_firmware as your QMK home? [y/n
 Ψ - lib/googletest: 2021-06-11 06:37:43 -0700 --  (e2239ee6)
 Ψ - lib/lufa: 2022-08-26 12:09:55 +1000 --  (549b97320)
 Ψ - lib/vusb: 2022-06-13 09:18:17 +1000 --  (819dbc1)
-* Ψ - lib/printf: 2022-06-29 23:59:58 +0300 --  (c2e3b4e)
+Ψ - lib/printf: 2022-06-29 23:59:58 +0300 --  (c2e3b4e)
 Ψ - lib/pico-sdk: 2023-02-12 20:19:37 +0100 --  (a3398d8)
 Ψ - lib/lvgl: 2022-04-11 04:44:53 -0600 --  (e19410f8)
 Ψ QMK is ready to go
@@ -81,7 +65,6 @@ user.keyboard: None -> keebio/iris/rev5
 Ψ Wrote configuration to /home/mfarabi/.config/qmk/qmk.ini
 ```
 
-
  qmk new-keymap
 
 ```
@@ -93,5 +76,41 @@ Used for maintainer, copyright, etc
 
 Your GitHub Username?  [Mumtahin Farabi]
 Ψ Created a new keymap called Mumtahin Farabi in: /home/mfarabi/dotfiles/qmk_firmware/keyboards/keebio/iris/keymaps/Mumtahin Farabi.
-Ψ Compile a firmware with your new keymap by typing: qmk compile -kb keebio/iris/rev5 -km Mumtahin Farabi.
-```
+Ψ Compile a firmware with your new keymap by typing: qmk compile -kb keebio/iris/rev5 -km
+
+* Keymap Discovery
+
+** Goal
+- Create ergonomic split keyboard layout that doesn't sacrifice on fast navigation
+
+** Research
+- https://keymapdb.com
+- https://github.com/manna-harbour/miryoku
+- https://keymap-drawer.streamlit.app/
+- https://getreuer.info/posts/keyboards/symbol-layer/index.html
+
+** Findings
+
+Most keymaps don't account for use of:
+- Tiling Window Manager
+- Emacs
+- Vim
+- Quick access to numbers & symbols for programming
+- Vivaldi
+
+Symbol layer efficiency varies based on programming language used.
+
+** Requirements
+*** Desktop
+**** Workspaces
+- Switch
+- Cycle
+**** Windows
+- Switch
+- Maximize
+*** Emacs
+- Switch buffers
+*** Vim
+- Quick access to symbols
+*** Vivaldi
+- Quick switcher
