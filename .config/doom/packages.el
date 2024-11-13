@@ -50,3 +50,4 @@
 ;; (unpin! t)
 (package! org-super-agenda)
 (package! org-fancy-priorities)
+(package! circe)
