@@ -124,8 +124,8 @@
 ;; (lsp-mode)
 
 ;; Enable lsp-mode in web-mode
-(add-hook 'web-mode-hook #'lsp)
-(add-hook 'web-mode-hook (lambda () (setq +format-with-lsp t)))
+;; (add-hook 'web-mode-hook #'lsp)
+;; (add-hook 'web-mode-hook (lambda () (setq +format-with-lsp t)))
 
 ;; Set directory for org mode
 (setq org-directory
@@ -186,5 +186,5 @@
     (compile command)))
 
 
-;; When viewing a pdf, view it in dark mode
+;; When viewing a pdf, view it in dark mode instead of the default light mode
 (add-hook 'pdf-view-mode-hook 'pdf-view-themed-minor-mode)
