@@ -48,6 +48,27 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+(package! magit-todos)
+
 (package! org-super-agenda)
 (package! org-fancy-priorities)
+(package! org-pandoc-import
+  :recipe (:host github
+           :repo "tecosaur/org-pandoc-import"
+           :files ("*.el" "filters" "preprocessors")))
+
 (package! circe)
+
+(package! keycast)
+
+(package! pnpm-mode)
+(package! scad-mode)
+(package! gptel)
+(package! copilot-chat)
+
+(package! fireplace)
+(package! pacmacs)
+(package! speed-type)
+(package! key-quiz)
+(package! nyan-mode)
