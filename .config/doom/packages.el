@@ -75,6 +75,7 @@
 (package! gptel)
 (package! copilot-chat)
 (package! devdocs)
+(package! verb)
 
 (package! fireplace)
 (package! pacmacs)
