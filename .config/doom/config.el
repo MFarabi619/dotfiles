@@ -205,6 +205,9 @@
 ;;   (setq org-fancy-priorities-list '("■" "■" "■"))
 ;;   )
 
+(after! org
+  (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
+
 ;; magit-todos
 (after! magit
   (setq magit-diff-refine-hunk 'all)
