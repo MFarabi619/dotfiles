@@ -207,6 +207,8 @@
 
 ;; magit-todos
 (after! magit
+  (setq magit-diff-refine-hunk 'all)
+
   (use-package! magit-todos
     :config (magit-todos-mode 1))
 
