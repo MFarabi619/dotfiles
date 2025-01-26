@@ -208,7 +208,11 @@
 ;; magit-todos
 (after! magit
   (use-package! magit-todos
-    :config (magit-todos-mode 1)))
+    :config (magit-todos-mode 1))
+
+  (use-package! magit-file-icons
+    :config (magit-file-icons-mode 1)
+    ))
 
 ;; TODO: Read Better alternatives for M-x, from 'Effective Emacs' by Steve Yegge: https://sites.google.com/site/steveyegge2/effective-emacs
 
