@@ -51,6 +51,8 @@
 
 (package! magit-todos)
 (package! magit-file-icons)
+(package! consult-gh)
+
 
 (package! org-super-agenda)
 (package! org-fancy-priorities)
