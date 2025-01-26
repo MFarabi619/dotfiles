@@ -74,6 +74,7 @@
 (package! scad-mode)
 (package! gptel)
 (package! copilot-chat)
+(package! devdocs)
 
 (package! fireplace)
 (package! pacmacs)
