@@ -66,6 +66,7 @@
            :files ("*.el" "filters" "preprocessors")))
 
 (package! circe)
+(package! org-gcal)
 
 (package! keycast)
 
