@@ -77,6 +77,8 @@
 (package! devdocs)
 (package! verb)
 
+(package! arch-packer)
+
 (package! fireplace)
 (package! pacmacs)
 (package! speed-type)
