@@ -53,6 +53,10 @@
 (package! magit-file-icons)
 (package! consult-gh)
 
+(package! pgmacs
+  :recipe (:host github :repo "emarsden/pg-el/"))
+(package! pgmacs
+  :recipe (:host github :repo "emarsden/pgmacs"))
 
 (package! org-super-agenda)
 (package! org-fancy-priorities)
