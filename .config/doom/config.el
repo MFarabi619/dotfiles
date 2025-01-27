@@ -111,6 +111,8 @@
    '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
    ))
 
+(setq display-line-numbers-type 'relative)
+
 ;; LLM Integration
 (use-package! gptel
   :commands gptel gptel-menu gptel-mode gptel-send gptel-set-tpic
