@@ -243,6 +243,9 @@
  'pdf-view-mode-hook
  'pdf-view-midnight-minor-mode)
 
+(after! pdf-tools
+  (setq pdf-view-continuous t))
+
 (use-package! org-pandoc-import :after org)
 
 ;; Remap switching to last buffer from 'SPC+`' to 'SPC+e'
