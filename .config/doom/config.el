@@ -264,6 +264,24 @@
   (setq doom-modeline-height 45)
   (setq doom-modeline-persp-name t))
 
+;; (map! :leader "g g" nil) ;; Unbind default Magit
+(map! :leader
+      "g l" (lambda ()
+              (interactive)
+              (let ((window-config (current-window-configuration))) ;; Save current layout
+                (delete-other-windows)  ;; Maximize window for vterm
+                (vterm "*lazygit*")
+                (vterm-send-string "lazygit; exit") ;; Exit vterm when lazygit exits
+                (vterm-send-return)
+
+                ;; Restore layout when vterm process exits
+                (set-process-sentinel
+                 (get-buffer-process "*lazygit*")
+                 (lambda (_process _event)
+                   (when (buffer-live-p (get-buffer "*lazygit*"))
+                     (kill-buffer "*lazygit*")) ;; Kill vterm buffer
+                   (set-window-configuration window-config)))))) ;; Restore layout
+
 ;; https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config
 
 ;;     ;; Optional, but recommended. Tree-sitter enabled major modes are
