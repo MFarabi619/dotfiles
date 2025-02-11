@@ -210,7 +210,6 @@
 (after! org
   (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
 
-;; magit-todos
 (after! magit
   (setq magit-diff-refine-hunk 'all)
 
@@ -219,7 +218,23 @@
 
   (use-package! magit-file-icons
     :config (magit-file-icons-mode 1)
-    ))
+    )
+  (setq magit-log-margin-show-committer-date t)
+  ;; (setq magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
+  (setq magit-section-visibility-indicator '(" " . " "))
+
+  (setq magit-revision-insert-related-refs t)
+  (add-hook 'magit-mode-hook 'hl-line-mode)
+  (add-hook 'magit-mode-hook 'display-line-numbers-mode)
+  )
+
+(custom-set-faces
+ '(magit-diff-added ((t (:foreground "#00ff00" :background "#002200"))))
+ '(magit-diff-removed ((t (:foreground "#ff0000" :background "#220000"))))
+ '(magit-section-heading ((t (:foreground "#ffff00" :weight bold))))
+ '(magit-diff-context ((t (:foreground "#b0b0b0"))))
+ '(magit-diff-hunk-heading ((t (:background "#3a3f5a"))))
+ '(magit-diff-hunk-heading-highlight ((t (:background "#51576d" :foreground "#ffffff")))))
 
 ;; TODO: Read Better alternatives for M-x, from 'Effective Emacs' by Steve Yegge: https://sites.google.com/site/steveyegge2/effective-emacs
 
