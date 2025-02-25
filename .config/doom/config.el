@@ -32,7 +32,11 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-gruvbox)
-(setq doom-theme 'doom-lantern
+(setq doom-theme
+      'doom-lantern
+      ;; 'doom-gruvbox
+      ;; 'doom-gruvbox-light
+      ;; 'doom-solarized-light
       doom-lantern-padded-modeline t)
 
 (setq doom-font
@@ -149,6 +153,7 @@
 (defadvice! prompt-for-buffer (&rest _)
   :after '(evil-window-split evil-window-vsplit)
   (consult-buffer))
+
 (map! :map evil-window-map
       "SPC" #'rotate-layout
       ;; Navigation
