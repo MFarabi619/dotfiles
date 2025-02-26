@@ -204,10 +204,12 @@
 
 (nyan-mode)
 
-(after! modeline
-  :config
-  (setq doom-modeline-height 45)
-  (setq doom-modeline-persp-name t))
+;; (after! modeline
+;; :config
+;; (setq doom-modeline-height 25)
+(setq doom-modeline-hud t)
+(setq doom-modeline-persp-name t)
+;; )
 
 ;; (map! :leader "g g" nil) ;; Unbind default Magit
 (map! :leader
