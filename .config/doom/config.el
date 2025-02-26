@@ -185,6 +185,10 @@
       ;; #'evil-switch-to-windows-last-buffer)
       #'my/switch-to-last-buffer-in-split)
 
+(after! vterm
+  (set-popup-rule! "*doom:vterm-popup:*" :size 0.5 :vslot -4 :select t :quit nil :ttl 0 :side 'right)
+  )
+
 ;; Display relative line numbers
 (menu-bar--display-line-numbers-mode-relative)
 (setq display-line-numbers-type t)
