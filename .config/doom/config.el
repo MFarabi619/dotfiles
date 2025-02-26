@@ -29,7 +29,9 @@
 
 ;; https://tecosaur.github.io/emacs-config
 
+
 (after! dired
+  (setq dirvish-peek-mode t)
   (setq dirvish-side-auto-close t))
 
 (setq display-line-numbers-type 'relative)
