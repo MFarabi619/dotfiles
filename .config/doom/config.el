@@ -195,6 +195,7 @@
 
 (after! vterm
   (set-popup-rule! "*doom:vterm-popup:*" :size 0.5 :vslot -4 :select t :quit nil :ttl 0 :side 'right)
+  (add-hook 'vterm-mode-hook #'evil-normal-state) ;; tart vterm in normal mode
   )
 
 ;; Display relative line numbers
