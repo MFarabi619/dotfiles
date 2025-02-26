@@ -191,6 +191,8 @@
       ;; ";" #'vterm
       "d" #'copilot-chat-custom-prompt-selection)
 
+(minimap-mode)
+
 (after! vterm
   (set-popup-rule! "*doom:vterm-popup:*" :size 0.5 :vslot -4 :select t :quit nil :ttl 0 :side 'right)
   )
