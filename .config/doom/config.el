@@ -117,8 +117,7 @@
 
 (setq display-line-numbers-type 'relative)
 
-;; LLM Integration
-(use-package! gptel
+(use-package! gptel ;; LLM Integration
   :commands gptel gptel-menu gptel-mode gptel-send gptel-set-tpic
   :config
   (let (ollama-models)
@@ -137,23 +136,19 @@
 (display-time-mode 1)
 (setq display-time-day-and-date t)
 
-;; Set default browser
-(setq browse-url-browser-function 'browse-url-default-browser)
+(setq browse-url-browser-function 'browse-url-default-browser) ;; Set default browser
 
-;; Set default search engine to Google
-(setq engine/search-engine 'google)
+(setq engine/search-engine 'google) ;; Set default search engine to Google
 
-;; Tell Projectile to search these directories
-(setq projectile-project-search-path '("~/workspace/" "~/Documents/"))
+(setq projectile-project-search-path '("~/workspace/" "~/Documents/")) ;; Projectile search directories
+(setq dirvish-side-auto-close t)  ;; Auto-close when focus is lost
 
 ;;; :editor evil
-;; Focus new window after splitting
-(setq evil-split-window-below t
+(setq evil-split-window-below t ;; Focus new window after splitting
       evil-vsplit-window-right t)
 (defadvice! prompt-for-buffer (&rest _)
   :after '(evil-window-split evil-window-vsplit)
   (consult-buffer))
-
 (map! :map evil-window-map
       "SPC" #'rotate-layout
       ;; Navigation
@@ -192,14 +187,14 @@
   ;; Set custom todo keywords
   (setq org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "CANCELLED(c)")))
 
-  ;; Set custom colors for todo keywords
+  ;; Custom TODO colors
   (setq org-todo-keyword-faces '(("TODO" :foreground "#7c7c75" :weight normal :underline t)
                                  ("INPROGRESS" :foreground "#0098dd" :weight normal :underline t)
                                  ("DONE" :foreground "#50a14f" :weight normal :underline t)
                                  ("CANCELLED" :foreground "#ff6480" :weight normal :underline t)
                                  ("BLOCKED" :foreground "#ff9800" :weight normal :underline t)))
 
-  ;; Set custom colors for priorities
+  ;; Custom priority colors
   (setq org-priority-faces
         '((?A :foreground "#e45649")
           (?B :foreground "#da8548")
@@ -253,10 +248,25 @@
 
 (use-package! org-pandoc-import :after org)
 
-;; Remap switching to last buffer from 'SPC+`' to 'SPC+e'
-(map! :leader
+(defun my/switch-to-last-buffer-in-split ()
+  "Switch to the lats buffer and split screen."
+  (interactive)
+  (let ((current-buffer (current-buffer)))
+    (if (one-window-p)
+        (progn
+          (split-window-right)
+          (other-window 1)
+          (switch-to-buffer current-buffer)
+          (other-window -1)
+          (evil-switch-to-windows-last-buffer)
+          ))
+    )
+  )
+
+(map! :leader ;; Remap switching to last buffer from 'SPC+`' to 'SPC+e'
       :desc "Switch to last buffer" "e"
-      #'evil-switch-to-windows-last-buffer)
+      ;; #'evil-switch-to-windows-last-buffer)
+      #'my/switch-to-last-buffer-in-split)
 
 ;; Display relative line numbers
 (menu-bar--display-line-numbers-mode-relative)
