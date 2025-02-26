@@ -1,74 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Mumtahin Farabi"
-      user-mail-address "mfarabi619@gmail.com")
-
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-symbol-font' -- for symbols
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
-;; (setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light))
-;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-;;
-;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
-;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
-;; refresh your font settings. If Emacs still can't find your font, it likely
-;; wasn't installed correctly. Font issues are rarely Doom issues!
-
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-gruvbox)
-(setq doom-theme
-      'doom-lantern
-      ;; 'doom-gruvbox
-      ;; 'doom-gruvbox-light
-      ;; 'doom-solarized-light
-      doom-lantern-padded-modeline t)
-
-(setq doom-font
-      (font-spec :family "JetBrainsMono Nerd Font"
-                 :size 20)
-      doom-variable-pitch-font
-      (font-spec :family "JetBrainsMono Nerd Font"
-                 :size 20)
-      doom-big-font
-      (font-spec :family "JetBrainsMono Nerd Font"
-                 :size 40))
-
-;; Custom banner with a quote below it in Doom Emacs dashboard
-(setq fancy-splash-image "~/dotfiles/.config/doom/doom-emacs-color2.svg")
-;; Custom text to display after the banner
-(after! doom-dashboard
-  (defun my-custom-dashboard-text ()
-    "Insert custom text into the Doom dashboard."
-    (insert "\"Do not proceed with a mess; messes just grow with time.\" ― Bjarne Stroustrup\n\n"))
-
-  ;; Find `doom-dashboard-widget-banner` in the list and insert after it
-  (let ((pos (cl-position #'doom-dashboard-widget-banner +doom-dashboard-functions)))
-    (when pos
-      (setq +doom-dashboard-functions
-            (append (cl-subseq +doom-dashboard-functions 0 (1+ pos))
-                    (list #'my-custom-dashboard-text)
-                    (cl-subseq +doom-dashboard-functions (1+ pos)))))))
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/")
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -103,17 +34,6 @@
 
 ;; https://tecosaur.github.io/emacs-config
 
-;; :which-key
-;; Make popup faster
-(setq which-key-idle-delay 0.25)
-;; Remove 'evil-' in too many popups
-(setq which-key-allow-multiple-replacements t)
-(after! which-key
-  (pushnew!
-   which-key-replacement-alist
-   '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
-   '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
-   ))
 
 (setq display-line-numbers-type 'relative)
 
@@ -304,4 +224,79 @@
 
 (setq plstore-cache-passphrase-for-symmetric-encryption t)
 
+;; :which-key
+(setq which-key-idle-delay 0.25) ;; Make popup faster
+(setq which-key-allow-multiple-replacements t) ;; Remove 'evil-' in too many popups
+(after! which-key
+  (pushnew!
+   which-key-replacement-alist
+   '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
+   '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
+   ))
+
+;; Place your private configuration here! Remember, you do not need to run 'doom
+;; sync' after modifying this file!
+
+(setq fancy-splash-image "~/dotfiles/.config/doom/doom-emacs-color2.svg") ;; Custom banner
+(after! doom-dashboard ;; Custom text
+  (defun my-custom-dashboard-text ()
+    "Insert custom text into the Doom dashboard."
+    (insert "\"Do not proceed with a mess; messes just grow with time.\" ― Bjarne Stroustrup\n\n"))
+
+  ;; Find `doom-dashboard-widget-banner` in the list and insert after it
+  (let ((pos (cl-position #'doom-dashboard-widget-banner +doom-dashboard-functions)))
+    (when pos
+      (setq +doom-dashboard-functions
+            (append (cl-subseq +doom-dashboard-functions 0 (1+ pos))
+                    (list #'my-custom-dashboard-text)
+                    (cl-subseq +doom-dashboard-functions (1+ pos)))))))
+
+;; Doom exposes five (optional) variables for controlling fonts in Doom:
+;;
+;; - `doom-font' -- the primary font to use
+;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
+;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
+;;   presentations or streaming.
+;; - `doom-symbol-font' -- for symbols
+;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
+;;
+;; See 'C-h v doom-font' for documentation and more examples of what they
+;; accept. For example:
+;;
+;; (setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light))
+;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+;;
+;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
+;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
+;; refresh your font settings. If Emacs still can't find your font, it likely
+;; wasn't installed correctly. Font issues are rarely Doom issues!
+
+;; There are two ways to load a theme. Both assume the theme is installed and
+;; available. You can either set `doom-theme' or manually load a theme with the
+;; `load-theme' function. This is the default:
+;; (setq doom-theme 'doom-gruvbox)
+(setq doom-theme
+      'doom-lantern
+      ;; 'doom-gruvbox
+      ;; 'doom-gruvbox-light
+      ;; 'doom-solarized-light
+      doom-lantern-padded-modeline t)
+
+(setq doom-font
+      (font-spec :family "JetBrainsMono Nerd Font"
+                 :size 20)
+      doom-variable-pitch-font
+      (font-spec :family "JetBrainsMono Nerd Font"
+                 :size 20)
+      doom-big-font
+      (font-spec :family "JetBrainsMono Nerd Font"
+                 :size 40))
+
+(setq user-full-name "Mumtahin Farabi"
+      user-mail-address "mfarabi619@gmail.com")
+
 ;; https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/Documents/")
