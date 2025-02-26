@@ -287,10 +287,12 @@
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-gruvbox)
 (setq doom-theme
-      'doom-lantern
-      ;; 'doom-gruvbox
+      ;; 'doom-lantern
+      'doom-gruvbox
       ;; 'doom-gruvbox-light
       ;; 'doom-solarized-light
+      ;; doom-lantern-brighter-modeline t
+      ;; doom-lantern-brighter-comments t
       doom-lantern-padded-modeline t)
 
 (setq doom-font
