@@ -1,20 +1,16 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Whenever you reconfigure a package, make sure to wrap your config in an
-;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
-;;
+;; Reconfigure packages with `after!' block wrap, otherwise Doom's defaults may override your settings. E.g.
 ;;   (after! PACKAGE
 ;;     (setq x y))
 ;;
-;; The exceptions to this rule:
-;;
+;; Exceptions to this:
 ;;   - Setting file/directory variables (like `org-directory')
 ;;   - Setting variables which explicitly tell you to set them before their
 ;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
 ;;   - Setting doom variables (which start with 'doom-' or '+').
 ;;
-;; Here are some additional functions/macros that will help you configure Doom.
-;;
+;; Additional Doom configuration functions/macros:
 ;; - `load!' for loading external *.el files relative to this one
 ;; - `use-package!' for configuring packages
 ;; - `after!' for running code after a package has loaded
@@ -23,14 +19,13 @@
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
 ;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
+;; See documentation about these functions/macros, by pressing
+;; 'K' over the highlighted symbol ('C-c c k' for non-evil users).
+;; open documentation for it, including demos of how they are used.
+;; Alternatively, use `C-h o' to look up symbols (functions, variables, faces,
 ;; etc).
 ;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
+;; See implementations with 'gd' over symbol (or 'C-c c d').
 
 ;; https://tecosaur.github.io/emacs-config
 
