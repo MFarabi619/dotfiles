@@ -1,5 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+;; karthinks.com/software/emacs-window-management-almanac/
+
 ;; Reconfigure packages with `after!' block wrap, otherwise Doom's defaults may override your settings. E.g.
 ;;   (after! PACKAGE
 ;;     (setq x y))
@@ -29,6 +31,7 @@
 
 ;; https://tecosaur.github.io/emacs-config
 
+(setq treemacs-git-mode 'extended)
 
 (after! dired
   (setq dirvish-peek-mode t)
