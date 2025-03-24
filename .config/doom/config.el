@@ -83,6 +83,7 @@
 (defadvice! prompt-for-buffer (&rest _)
   :after '(evil-window-split evil-window-vsplit)
   (consult-buffer))
+;; (+helm/projectile-find-file))
 (map! :map evil-window-map
       "SPC" #'rotate-layout
       ;; Navigation
