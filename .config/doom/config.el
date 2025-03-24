@@ -43,10 +43,14 @@
   lsp-treemacs-symbols-position-params '((side . left) (slot . 1) (window-width . 35)))
 
 (after! dired
+  (setq dirvish-side-display-alist '((side . right) (slot . -1)))
   (setq dirvish-peek-mode t)
-  (setq dirvish-side-auto-close t))
+  (setq dirvish-side-auto-close t)
+  (setq dirvish-side-follow-mode t))
 
 (setq display-line-numbers-type 'relative)
+
+
 
 (use-package! gptel ;; LLM Integration
   :commands gptel gptel-menu gptel-mode gptel-send gptel-set-tpic
@@ -72,7 +76,6 @@
 (setq engine/search-engine 'google) ;; Set default search engine to Google
 
 (setq projectile-project-search-path '("~/workspace/" "~/Documents/")) ;; Projectile search directories
-(setq dirvish-side-auto-close t)  ;; Auto-close when focus is lost
 
 ;;; :editor evil
 (setq evil-split-window-below t ;; Focus new window after splitting
