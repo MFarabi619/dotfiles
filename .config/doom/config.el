@@ -32,6 +32,15 @@
 ;; https://tecosaur.github.io/emacs-config
 
 (setq treemacs-git-mode 'extended)
+(after! treemacs
+  treemacs-git-commit-diff-mode t
+  treemacs-indent-guide-mode t
+  treemacs-position 'left
+  ;; treemacs-load-theme "doom-colors")
+  ;; lsp-treemacs-theme "Eclipse"
+  ;; lsp-treemacs-theme "NetBeans"
+  ;; lsp-treemacs-theme "Idea"
+  lsp-treemacs-symbols-position-params '((side . left) (slot . 1) (window-width . 35)))
 
 (after! dired
   (setq dirvish-peek-mode t)
