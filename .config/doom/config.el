@@ -214,7 +214,14 @@
       ;; ";" #'vterm
       "d" #'copilot-chat-custom-prompt-selection)
 
-(minimap-mode)
+;; (minimap-mode)
+
+(after! centaur-tabs-mode
+  (setq centaur-tabs-gray-out-icons t)
+  (setq centaur-tabs-show-count t)
+  (setq centaur-tabs-enable-key-bindings t)
+  (setq centaur-tabs-show-navigation-buttons t)
+  )
 
 (after! vterm
   (set-popup-rule! "*doom:vterm-popup:*" :size 0.5 :vslot -4 :select t :quit nil :ttl 0 :side 'right)
