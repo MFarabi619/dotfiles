@@ -225,14 +225,17 @@
 (menu-bar--display-line-numbers-mode-relative)
 (setq display-line-numbers-type t)
 
-(nyan-mode)
 
-;; (after! modeline
-;; :config
-;; (setq doom-modeline-height 25)
 (setq doom-modeline-hud t)
 (setq doom-modeline-persp-name t)
-;; )
+(setq doom-modeline-major-mode-icon t)
+
+(after! nyan-mode
+  (setq nyan-animate-nyancat t
+        nyan-wavy-trail t
+        )
+  )
+(add-hook 'doom-modeline-mode-hook #'nyan-mode)
 
 ;; (map! :leader "g g" nil) ;; Unbind default Magit
 (map! :leader
@@ -258,6 +261,9 @@
 ;;                                   ))
 
 (setq plstore-cache-passphrase-for-symmetric-encryption t)
+
+(after! nerd-icons
+  (setq nerd-icons-completion-mode t))
 
 ;; :which-key
 (setq which-key-idle-delay 0.25) ;; Make popup faster
