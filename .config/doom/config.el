@@ -155,7 +155,14 @@
     :config (magit-file-icons-mode 1)
     )
   (setq magit-log-margin-show-committer-date t)
-  ;; (setq magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
+
+  ;; Enable commit graphs
+  (setq magit-log-arguments '("--graph" "--decorate" "--color" "--abbrev-commit" "-n256"))
+  (setq magit-status-margin
+        '(t age magit-log-margin-width t 22))
+
+  (setq magit-log-margin-show-author t)
+
   (setq magit-section-visibility-indicator '(" " . " "))
 
   (setq magit-revision-insert-related-refs t)
