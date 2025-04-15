@@ -140,8 +140,9 @@
                +tree-sitter)          ; erlang done right
        ;;elm             ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       ;;erlang          ; an elegant language for a more civilized age
        (ess +stan +tree-sitter)               ; emacs speaks statistics
+       (erlang +lsp
+               +tree-sitter)          ; an elegant language for a more civilized age
        ;;factor
        ;;faust           ; dsp, but you get to keep your soul
        ;;fortran         ; in FORTRAN, GOD is REAL (unless declared INTEGER)
