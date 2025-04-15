@@ -171,7 +171,7 @@
  '(magit-diff-hunk-heading ((t (:background "#3a3f5a"))))
  '(magit-diff-hunk-heading-highlight ((t (:background "#51576d" :foreground "#ffffff")))))
 
-;; TODO: Read Better alternatives for M-x, from 'Effective Emacs' by Steve Yegge: https://sites.google.com/site/steveyegge2/effective-emacs
+;; TODO:
 
 ;; When viewing a pdf, view it in dark mode instead of the default light mode
 (add-hook
@@ -191,25 +191,20 @@
 (use-package! org-pandoc-import :after org)
 
 (defun my/switch-to-last-buffer-in-split ()
-  "Switch to the lats buffer and split screen."
   "Show last buffer on split screen."
   (interactive)
   (let ((current-buffer (current-buffer)))
     (if (one-window-p)
         (progn
           (split-window-right)
-          (other-window 1)
-          (switch-to-buffer current-buffer)
-          (other-window -1)
           (evil-switch-to-windows-last-buffer)
-          ))
-    )
-  )
+          (switch-to-buffer current-buffer)
+          ))))
 
 (map! :leader ;; Remap switching to last buffer from 'SPC+`' to 'SPC+e'
-      :desc "Switch to last buffer" "e"
-      ;; #'evil-switch-to-windows-last-buffer)
-      #'my/switch-to-last-buffer-in-split)
+      :desc "Switch to last buffer"
+      "e" #'evil-switch-to-windows-last-buffer)
+;; "e" #'my/switch-to-last-buffer-in-split)
 
 (map! :leader
       ;; ";" #'vterm
@@ -227,10 +222,17 @@
 (after! copilot-chat
   (setq copilot-chat-model "gpt-4o"))
 
+(after! js-mode
+  (setq +javascript-npm-mode-hook
+        '(doom--enable-+web-phaser-mode-in-+javascript-npm-mode-h
+          doom--enable-+web-react-mode-in-+javascript-npm-mode-h
+          doom--enable-+web-angularjs-mode-in-+javascript-npm-mode-h
+          pnpm-mode
+          +javascript-add-npm-path-h)))
+
 (after! vterm
   (set-popup-rule! "*doom:vterm-popup:*" :size 0.5 :vslot -4 :select t :quit nil :ttl 0 :side 'right)
-  (add-hook 'vterm-mode-hook #'evil-normal-state) ;; tart vterm in normal mode
-  )
+  (add-hook 'vterm-mode-hook #'evil-normal-state)) ;; Start vterm in normal mode
 
 
 
@@ -267,6 +269,21 @@
 
 (after! nerd-icons
   (setq nerd-icons-completion-mode t))
+
+;; Add LikeC4 to LSP language configuration
+(after! lsp-mode
+  (setq lsp-eslint-package-manager "pnpm"
+        lsp-eslint-run "onSave"
+        lsp-typescript-format-enable nil)
+
+  (add-to-list 'lsp-language-id-configuration '(".*\\.c4" . "likec4"))
+
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection '("likec4-language-server" "--stdio"))
+    :activation-fn (lsp-activate-on "likec4")
+    :server-id 'likec4-ls)))
+
 
 ;; :which-key
 (setq which-key-idle-delay 0.25) ;; Make popup faster
