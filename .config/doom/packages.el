@@ -50,7 +50,6 @@
 ;; (unpin! t)
 
 (package! magit-todos)
-(package! magit-file-icons)
 (package! consult-gh)
 
 (package! pgmacs

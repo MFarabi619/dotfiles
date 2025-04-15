@@ -151,8 +151,6 @@
   (use-package! magit-todos
     :config (magit-todos-mode 1))
 
-    :config (magit-file-icons-mode 1)
-    )
   (setq magit-log-margin-show-committer-date t)
 
   ;; Enable commit graphs
@@ -163,7 +161,7 @@
   (setq magit-log-margin-show-author t)
 
   (setq magit-section-visibility-indicator '(" " . " "))
-
+  (setq magit-format-file-function #'magit-format-file-nerd-icons)
   (setq magit-revision-insert-related-refs t)
   (add-hook 'magit-mode-hook 'hl-line-mode)
   (add-hook 'magit-mode-hook 'display-line-numbers-mode)
