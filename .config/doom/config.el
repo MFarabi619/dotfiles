@@ -111,10 +111,6 @@
 ;; Make flycheck errors much better
 (set-popup-rule! "^\\*Flycheck errors\\*$" :side 'bottom :size 0.4 :select t)
 
-;; Set directory for org mode
-(setq org-directory
-      "~/Documents/Obsidian Vault/misc")
-
 (after! org
   ;; Allow linking to non-headlines in org mode
   (setq org-link-search-must-match-exact-headline nil)
@@ -185,10 +181,18 @@
 (after! pdf-tools
   (setq pdf-view-continuous t))
 
+(use-package! nov-xwidget
+  :demand t
+  :after nov
+  :config
+  (define-key nov-mode-map (kbd "o") 'nov-xwidget-view)
+  (add-hook 'nov-mode-hook 'nov-xwidget-inject-all-files))
+
 (use-package! org-pandoc-import :after org)
 
 (defun my/switch-to-last-buffer-in-split ()
   "Switch to the lats buffer and split screen."
+  "Show last buffer on split screen."
   (interactive)
   (let ((current-buffer (current-buffer)))
     (if (one-window-p)
@@ -258,11 +262,6 @@
                    (when (buffer-live-p (get-buffer "*lazygit*"))
                      (kill-buffer "*lazygit*")) ;; Kill vterm buffer
                    (set-window-configuration window-config)))))) ;; Restore layout
-
-;; (setq org-gcal-client-id "some-client-id.apps.googleusercontent.com"
-;;       org-gcal-client-secret "some-client-secret"
-;;       org-gcal-fetch-file-alist '(("someemail@gmail.com" .  "~/Documents/schedule.org")
-;;                                   ))
 
 (setq plstore-cache-passphrase-for-symmetric-encryption t)
 

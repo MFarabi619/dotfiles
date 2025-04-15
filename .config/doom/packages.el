@@ -49,6 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
+(package! nov)
+
 (package! magit-todos)
 (package! consult-gh)
 
