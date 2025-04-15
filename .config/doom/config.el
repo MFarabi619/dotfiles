@@ -48,9 +48,9 @@
   (setq dirvish-side-auto-close t)
   (setq dirvish-side-follow-mode t))
 
+;; Display relative line numbers
+(menu-bar--display-line-numbers-mode-relative)
 (setq display-line-numbers-type 'relative)
-
-
 
 (use-package! gptel ;; LLM Integration
   :commands gptel gptel-menu gptel-mode gptel-send gptel-set-tpic
@@ -151,7 +151,6 @@
   (use-package! magit-todos
     :config (magit-todos-mode 1))
 
-  (use-package! magit-file-icons
     :config (magit-file-icons-mode 1)
     )
   (setq magit-log-margin-show-committer-date t)
@@ -231,9 +230,6 @@
   (add-hook 'vterm-mode-hook #'evil-normal-state) ;; tart vterm in normal mode
   )
 
-;; Display relative line numbers
-(menu-bar--display-line-numbers-mode-relative)
-(setq display-line-numbers-type t)
 
 
 (setq doom-modeline-hud t)
