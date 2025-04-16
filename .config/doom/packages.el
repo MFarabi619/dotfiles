@@ -65,16 +65,16 @@
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
+(package! org-gcal)
 
 (package! circe)
-(package! org-gcal)
 
 (package! keycast)
 
 (package! pnpm-mode)
 (package! scad-mode)
-(package! gptel)
-(package! copilot-chat)
+
+(package! gptel :recipe (:nonrecursive t))
 (package! devdocs)
 (package! verb)
 

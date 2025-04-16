@@ -1,6 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; karthinks.com/software/emacs-window-management-almanac/
+;; https://notes.justin.vc/config
 
 ;; Reconfigure packages with `after!' block wrap, otherwise Doom's defaults may override your settings. E.g.
 ;;   (after! PACKAGE
@@ -48,25 +49,21 @@
   (setq dirvish-side-auto-close t)
   (setq dirvish-side-follow-mode t))
 
-;; Display relative line numbers
 (menu-bar--display-line-numbers-mode-relative)
 (setq display-line-numbers-type 'relative)
 
-(use-package! gptel ;; LLM Integration
-  :commands gptel gptel-menu gptel-mode gptel-send gptel-set-tpic
+(use-package! gptel
   :config
-  (let (ollama-models)
-    (when (executable-find "ollama")
-      (with-temp-buffer
-        (call-process "ollama" nil t nil "list")
-        (goto-char (point-min))
-        (forward-line 1)
-        (while (and (not (eobp)) (looking-at "[^ \t]+"))
-          (push (match-string 0) ollama-models)
-          (forward-line 1))))
-    (setq-default gptel-model "nous-hermes2:latest"
-                  gptel-backend (gptel-make-ollama "Ollama" :models ollama-models :stream t)))
-  (setq gptel-default-mode #'org-mode))
+  ;; (setq! gptel-api-key "your key")
+  (setq gptel-default-mode #'org-mode)
+  (setq gptel-model 'gpt-4o-2024-11-20
+        gptel-backend (gptel-make-gh-copilot "Copilot"))
+  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
+  (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
+  )
+
+(map! :leader
+      "d" #'gptel)
 
 (display-time-mode 1)
 (setq display-time-day-and-date t)
@@ -206,10 +203,6 @@
       "e" #'evil-switch-to-windows-last-buffer)
 ;; "e" #'my/switch-to-last-buffer-in-split)
 
-(map! :leader
-      ;; ";" #'vterm
-      "d" #'copilot-chat-custom-prompt-selection)
-
 ;; (minimap-mode)
 
 (after! centaur-tabs-mode
@@ -218,9 +211,6 @@
   (setq centaur-tabs-enable-key-bindings t)
   (setq centaur-tabs-show-navigation-buttons t)
   )
-
-(after! copilot-chat
-  (setq copilot-chat-model "gpt-4o"))
 
 (after! js-mode
   (setq +javascript-npm-mode-hook
@@ -234,17 +224,15 @@
   (set-popup-rule! "*doom:vterm-popup:*" :size 0.5 :vslot -4 :select t :quit nil :ttl 0 :side 'right)
   (add-hook 'vterm-mode-hook #'evil-normal-state)) ;; Start vterm in normal mode
 
-
-
 (setq doom-modeline-hud t)
 (setq doom-modeline-persp-name t)
 (setq doom-modeline-major-mode-icon t)
 
 (after! nyan-mode
   (setq nyan-animate-nyancat t
-        nyan-wavy-trail t
-        )
+        nyan-wavy-trail t)
   )
+
 (add-hook 'doom-modeline-mode-hook #'nyan-mode)
 
 ;; (map! :leader "g g" nil) ;; Unbind default Magit
@@ -283,7 +271,6 @@
     :new-connection (lsp-stdio-connection '("likec4-language-server" "--stdio"))
     :activation-fn (lsp-activate-on "likec4")
     :server-id 'likec4-ls)))
-
 
 ;; :which-key
 (setq which-key-idle-delay 0.25) ;; Make popup faster

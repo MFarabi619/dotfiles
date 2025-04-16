@@ -3,7 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(copilot-chat scad-preview scad-mode lsp-docker empv))
+ '(package-selected-packages '(scad-preview scad-mode lsp-docker empv))
  '(warning-suppress-types '((lsp-mode) (defvaralias) (lexical-binding))))
 
 (custom-set-faces
