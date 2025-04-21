@@ -60,7 +60,6 @@
   :recipe (:host github :repo "emarsden/pgmacs"))
 
 (package! org-super-agenda)
-(package! org-fancy-priorities)
 (package! org-pandoc-import
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
