@@ -57,22 +57,63 @@
 (use-package! gptel
   :config
   ;; (setq! gptel-api-key "your key")
-  (setq gptel-default-mode #'org-mode)
-  (setq gptel-model 'gpt-4o-2024-11-20
-        gptel-backend (gptel-make-gh-copilot "Copilot"))
+  (setq
+   gptel-default-mode #'org-mode
+   gptel-model 'gpt-4o-2024-11-20
+   gptel-backend (gptel-make-gh-copilot "Copilot")
+   gptel-directives '((default     . "You are a large language model living in Doom Emacs and a helpful assistant. Respond concisely. I'm using Doom Emacs with Evil Mode inside Arch Linux with Hyprland. I browse the web with Vivaldi. I also use Nix for configuration management, and write code in Rust.")
+                      (programming . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
+                      (writing     . "You are a large language model and a writing assistant. Respond concisely.")
+                      (chat        . "You are a large language model and a conversation partner. Respond concisely.")))
+  (set-popup-rule! "*Copilot*" :size 0.5 :vslot -4 :select t :quit nil :ttl 0 :side 'left)
   (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
   (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
+
+  ;; (defvar gptel-lookup--history nil)
+
+  ;; (defun gptel-lookup (prompt)
+  ;;   (interactive (list (read-string "Ask AI: " nil gptel-lookup--history)))
+  ;;   (when (string= prompt "") (user-error "A prompt is required."))
+  ;;   (gptel-request
+  ;;       prompt
+  ;;     :callback
+  ;;     (lambda (response info)
+  ;;       (if (not response)
+  ;;           (message "gptel-lookup failed with message: %s" (plist-get info :status))
+  ;;         (with-current-buffer (get-buffer-create "*Copilot*")
+  ;;           (let ((inhibit-read-only t))
+  ;;             (erase-buffer)
+  ;;             (insert response))
+  ;;           (special-mode)
+  ;;           (display-buffer (current-buffer)
+  ;;                           `((display-buffer-in-side-window)
+  ;;                             (side . left)
+  ;;                             (window-height . ,#'fit-window-to-buffer))))))))
   )
 
-(map! :leader
-      "d" #'gptel)
+(map!
+ :leader
+ :desc "Open AI Chat buffer"
+ "d"
+ #'gptel
+ ;; #'gptel-send
+ ;; #'gptel-lookup
+ ;; (lambda ()
+ ;;   (interactive)
+ ;;   (gptel "*Copilot*")
+ ;;   (select-window
+ ;;    (display-buffer-in-side-window
+ ;;     (get-buffer "*Copilot*")
+ ;;     '((side . left)
+ ;;       (slot . 0)
+ ;;       (window-width . 0.5)
+ ;;       (select . t)))))
+ )
 
 (display-time-mode 1)
 (setq display-time-day-and-date t)
 
-(setq browse-url-browser-function 'browse-url-default-browser) ;; Set default browser
-
-(setq engine/search-engine 'google) ;; Set default search engine to Google
+(setq browse-url-browser-function 'browse-url-default-browser)
 
 (setq projectile-project-search-path '("~/workspace/" "~/Documents/")) ;; Projectile search directories
 
@@ -82,7 +123,7 @@
 (defadvice! prompt-for-buffer (&rest _)
   :after '(evil-window-split evil-window-vsplit)
   (consult-buffer))
-;; (+helm/projectile-find-file))
+
 (map! :map evil-window-map
       "SPC" #'rotate-layout
       ;; Navigation
@@ -97,48 +138,61 @@
       "C-<right>"      #'+evil/window-move-right)
 
 ;; Implicit /g flag on evil ex substitution, because I use the default behavior less often.
-(setq evil-ex-substitute-global t)
-
-;; Move by visual lines instead of physical lines
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(after! evil
+  (setq evil-ex-substitute-global t
+        evil-escape-key-sequence "jk")
+  ;; Move by visual lines instead of physical lines
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+  )
 
 ;; (keycast-tab-line-mode)
-
-(setq evil-escape-key-sequence "jk")
 
 ;; Make flycheck errors much better
 (set-popup-rule! "^\\*Flycheck errors\\*$" :side 'bottom :size 0.4 :select t)
 
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/Documents/")
+
 (after! org
-  ;; Allow linking to non-headlines in org mode
+  ;; Allow linking to non-headlines
   (setq org-link-search-must-match-exact-headline nil)
+  org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "CANCELLED(c)"))
+  org-todo-keyword-faces '(("TODO" :foreground "#7c7c75" :weight normal :underline t)
+                           ("INPROGRESS" :foreground "#0098dd" :weight normal :underline t)
+                           ("DONE" :foreground "#50a14f" :weight normal :underline t)
+                           ("CANCELLED" :foreground "#ff6480" :weight normal :underline t)
+                           ("BLOCKED" :foreground "#ff9800" :weight normal :underline t))
+  org-priority-faces
+  '((?A :foreground "#e45649")
+    (?B :foreground "#da8548")
+    (?C :foreground "#0098dd"))
+  (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
 
-  ;; Set custom todo keywords
-  (setq org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "CANCELLED(c)")))
+  (setq org-modern-star ["◉" "○" "✸" "✿" "✤" "✜" "◆" "▶"]
+        org-modern-table-vertical 1
+        org-modern-table-horizontal 0.2
+        org-modern-list '((43 . "➤")
+                          (45 . "–")
+                          (42 . "•"))
+        ;; org-modern-todo '((sequence "TODO(t)" "INPROGRESS(i)" "BLOCKED(b)" "|" "DONE(d)" "CANCELLED(c)"))
+        ;; org-modern-todo-faces '(("TODO" :foreground "#7c7c75" :weight normal :underline t)
+        ;;                         ("INPROGRESS" :foreground "#0098dd" :weight normal :underline t)
+        ;;                         ("DONE" :foreground "#50a14f" :weight normal :underline t)
+        ;;                         ("CANCELLED" :foreground "#ff6480" :weight normal :underline t)
+        ;;                         ("BLOCKED" :foreground "#ff9800" :weight normal :underline t))
+        ;; org-modern-priority-faces '((?A :foreground "#e45649")
+        ;;                             (?B :foreground "#da8548")
+        ;;                             (?C :foreground "#0098dd"))
+        ;; org-modern-priority nil
+        ;; org-modern-todo nil
+        ;; org-modern-footnote (cons nil (cadr org-script-display))
+        ;; (custom-set-faces! '(org-modern-statistics :inherit org-checkbox-statistics-todo))
 
-  ;; Custom TODO colors
-  (setq org-todo-keyword-faces '(("TODO" :foreground "#7c7c75" :weight normal :underline t)
-                                 ("INPROGRESS" :foreground "#0098dd" :weight normal :underline t)
-                                 ("DONE" :foreground "#50a14f" :weight normal :underline t)
-                                 ("CANCELLED" :foreground "#ff6480" :weight normal :underline t)
-                                 ("BLOCKED" :foreground "#ff9800" :weight normal :underline t)))
-
-  ;; Custom priority colors
-  (setq org-priority-faces
-        '((?A :foreground "#e45649")
-          (?B :foreground "#da8548")
-          (?C :foreground "#0098dd"))))
-
-;; Add icons to priorities
-;; (use-package! org-fancy-priorities
-;;   :hook (org-mode . org-fancy-priorities-mode)
-;;   :config
-;;   (setq org-fancy-priorities-list '("■" "■" "■"))
-;;   )
-
-(after! org
-  (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
+        ;; (after! spell-fu
+        ;;   (cl-pushnew 'org-modern-tag (alist-get 'org-mode +spell-excluded-faces-alist)))
+        ))
 
 (after! magit
   (setq magit-diff-refine-hunk 'all)
@@ -159,8 +213,7 @@
   (setq magit-format-file-function #'magit-format-file-nerd-icons)
   (setq magit-revision-insert-related-refs t)
   (add-hook 'magit-mode-hook 'hl-line-mode)
-  (add-hook 'magit-mode-hook 'display-line-numbers-mode)
-  )
+  (add-hook 'magit-mode-hook 'display-line-numbers-mode))
 
 (custom-set-faces
  '(magit-diff-added ((t (:foreground "#00ff00" :background "#002200"))))
@@ -169,8 +222,6 @@
  '(magit-diff-context ((t (:foreground "#b0b0b0"))))
  '(magit-diff-hunk-heading ((t (:background "#3a3f5a"))))
  '(magit-diff-hunk-heading-highlight ((t (:background "#51576d" :foreground "#ffffff")))))
-
-;; TODO:
 
 ;; When viewing a pdf, view it in dark mode instead of the default light mode
 (add-hook
@@ -186,8 +237,6 @@
   :config
   (define-key nov-mode-map (kbd "o") 'nov-xwidget-view)
   (add-hook 'nov-mode-hook 'nov-xwidget-inject-all-files))
-
-(use-package! org-pandoc-import :after org)
 
 (defun my/switch-to-last-buffer-in-split ()
   "Show last buffer on split screen."
@@ -211,8 +260,7 @@
   (setq centaur-tabs-gray-out-icons t)
   (setq centaur-tabs-show-count t)
   (setq centaur-tabs-enable-key-bindings t)
-  (setq centaur-tabs-show-navigation-buttons t)
-  )
+  (setq centaur-tabs-show-navigation-buttons t))
 
 (after! js-mode
   (setq +javascript-npm-mode-hook
@@ -239,6 +287,7 @@
 
 ;; (map! :leader "g g" nil) ;; Unbind default Magit
 (map! :leader
+      :desc "Lazygit"
       "g l" (lambda ()
               (interactive)
               (let ((window-config (current-window-configuration))) ;; Save current layout
@@ -273,6 +322,15 @@
     :new-connection (lsp-stdio-connection '("likec4-language-server" "--stdio"))
     :activation-fn (lsp-activate-on "likec4")
     :server-id 'likec4-ls)))
+
+;; (define-derived-mode sway-mode rust-ts-mode "sway")
+
+;; (add-to-list 'auto-mode-alist '("\\.sw\\'" . sway-mode))
+
+;; (add-to-list
+;;  'eglot-server-programs
+;;  '((sway-mode) .
+;;    ("nix" "shell" "github:fuellabs/fuel.nix#fuel" "--command" "forc-lsp")))
 
 ;; :which-key
 (setq which-key-idle-delay 0.25) ;; Make popup faster
@@ -347,7 +405,3 @@
       user-mail-address "mfarabi619@gmail.com")
 
 ;; https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/")
