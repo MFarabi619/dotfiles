@@ -1,7 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; karthinks.com/software/emacs-window-management-almanac/
-;; https://notes.justin.vc/config
+;; notes.justin.vc/config
 
 ;; Reconfigure packages with `after!' block wrap, otherwise Doom's defaults may override your settings. E.g.
 ;;   (after! PACKAGE
@@ -31,6 +31,8 @@
 ;; See implementations with 'gd' over symbol (or 'C-c c d').
 
 ;; https://tecosaur.github.io/emacs-config
+
+;; (+global-word-wrap-mode +1)
 
 (setq treemacs-git-mode 'extended)
 (after! treemacs
