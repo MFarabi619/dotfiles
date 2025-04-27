@@ -95,7 +95,8 @@
        (syntax
         +flymake
         +icons)          ; tasing you for every semicolon you forget
-       (spell +flyspell) ; tasing you for misspelling mispelling
+       (spell
+        +flyspell)       ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
 
        :tools
@@ -185,6 +186,7 @@
         +jupyter
         +noter
         +pandoc
+        +passwords
         +pomodoro
         +present
         +pretty
