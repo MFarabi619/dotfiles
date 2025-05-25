@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+gui:
+  nerdFontsVersion: "3"
+  # If true, allow scrolling past the bottom of the content in the main window
+  scrollPastBottom: false
+  # One of: 'margin' (default) | 'jump'
+  # scrollOffBehavior: jump
+  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#scroll-off-margin
+  scrollOffMargin: 0
+  # Default size for focused window. Can be changed from within Lazygit with '+' and '_' (but this won't change the default).
+  # One of: 'normal' (default) | 'half' | 'full'
+  screenMode: normal
+  # # Fraction of the total screen width to use for the left side section. You may want to pick a small number (e.g. 0.2) if you're using a narrow screen, so that you can see more of the main section.
+  # # Number from 0 to 1.0.
+  sidePanelWidth: 0.5
+  # If true, increase the height of the focused side window; creating an accordion effect.
+  expandFocusedSidePanel: true
+  # The weight of the expanded side panel, relative to the other panels. 2 means
+  # twice as tall as the other panels. Only relevant if `expandFocusedSidePanel` is true.
+  expandedSidePanelWeight: 2
+  # Whether to stack UI components on top of each other.
+  # One of 'auto' (default) | 'always' | 'never'
+  portraitMode: never
+  enlargedSideViewLocation: top
+  # If true, wrap lines in the staging view to the width of the view. This
+  # makes it much easier to work with diffs that have long lines, e.g.
+  # paragraphs of markdown text.
+  wrapLinesInStagingView: false
+  # If true, show the '5 of 20' footer at the bottom of list views
+  showListFooter: false
+  showRandomTip: false
+  # If true, show jump-to-window keybindings in window titles.
+  # showPanelJumps: false
+  # If true, show the bottom line that contains keybinding info and useful buttons. If false, this line will be hidden except to display a loader for an in-progress action.
+  showBottomLine: false
+  # If true, show jump-to-window keybindings in window titles.
+  showPanelJumps: false
+  # Length of author name in (non-expanded) commits view. 2 means show initials only.
+  commitAuthorShortLength: 2
+  # Length of author name in expanded commits view. 2 means show initials only.
+  commitAuthorLongLength: 2
+  # Length of commit hash in commits view. 0 shows '*' if NF icons aren't on.
+  commitHashLength: 4
+  # Window border style.
+  # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
+  border: rounded
+  # The number of spaces per tab; used for everything that's shown in the main view, but probably mostly relevant for diffs.
+  # Note that when using a pager, the pager has its own tab width setting, so you need to pass it separately in the pager command.
+  tabWidth: 1
+  # If true, display the files in the file views as a tree. If false, display the files as a flat list.
+  # This can be toggled from within Lazygit with the '`' key, but that will not change the default.
+  showFileTree: true
+  # If true, show the number of lines changed per file in the Files view
+  showNumstatInFilesView: true
+  # If true, when using the panel jump keys (default 1 through 5) and target panel is already active, go to next tab instead
+  switchTabsWithPanelJumpKeys: true
+
+os:
+  edit: "emacsclient -n {{filename}}"
+  editAtLine: "emacsclient -n +{{line}} {{filename}}"
+  openDirInEditor: "emacsclient {{dir}}"
+  # Whether lazygit suspends until an edit process returns
+  editInTerminal: false
+
+git:
+  branchPrefix: "mfarabi/"
+
+# If true, don't display introductory popups upon opening Lazygit.
+disableStartupPopups: true
+
+# If true, display a confirmation when subprocess terminates. This allows you to view the output of the subprocess before returning to Lazygit.
+promptToReturnFromSubprocess: false
