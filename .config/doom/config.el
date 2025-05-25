@@ -51,6 +51,16 @@
   (setq dirvish-side-auto-close t)
   (setq dirvish-side-follow-mode t))
 
+(after! dirvish
+  (setq! dirvish-quick-access-entries
+         `(("h" "~/"                          "Home")
+           ("e" ,user-emacs-directory         "Emacs user directory")
+           ("w" "~/workspace/"                "Workspace")
+           ("d" "~/Downloads/"                "Downloads")
+           ("p" "~/Pictures/"                 "Pictures")
+           ("m" "/mnt/"                       "Mounted drives")
+           ("t" "~/.local/share/Trash/files/" "Trash"))))
+
 (menu-bar--display-line-numbers-mode-relative)
 (setq display-line-numbers-type 'relative)
 
