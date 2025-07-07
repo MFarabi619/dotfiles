@@ -71,15 +71,18 @@
         dirvish-peek-mode t
         dirvish-side-auto-close t
         dirvish-side-follow-mode t))
+
 (after! dirvish
-  (setq! dirvish-quick-access-entries
-         `(("h" "~/"                          "Home")
-           ("e" ,user-emacs-directory         "Emacs user directory")
-           ("w" "~/workspace/"                "Workspace")
-           ("d" "~/Downloads/"                "Downloads")
-           ("p" "~/Pictures/"                 "Pictures")
-           ("m" "/mnt/"                       "Mounted drives")
-           ("t" "~/.local/share/Trash/files/" "Trash"))))
+  (setq!
+   dirvish-default-layout '(1 0.11 0.70)
+   dirvish-quick-access-entries
+   `(("h" "~/"                          "Home")
+     ("e" ,user-emacs-directory         "Emacs user directory")
+     ("w" "~/workspace/"                "Workspace")
+     ("d" "~/Downloads/"                "Downloads")
+     ("p" "~/Pictures/"                 "Pictures")
+     ("m" "/mnt/"                       "Mounted drives")
+     ("t" "~/.local/share/Trash/files/" "Trash"))))
 
 (use-package! gptel
   :config
