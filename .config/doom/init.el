@@ -39,7 +39,9 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        ;;doom-quit       ; DOOM quit-message prompts when you quit Emacs
-       (emoji +unicode)  ; 🙂
+       (emoji +ascii
+              +unicode
+              +github)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        indent-guides     ; highlighted indent columns
        ;;ligatures       ; ligatures and symbols to make your code pretty again
@@ -151,8 +153,8 @@
        ;;fsharp          ; ML stands for Microsoft's Language
        ;;fstar           ; (dependent) types and (monadic) effects and Z3
        ;;gdscript        ; the language you waited for
-       (go +lsp
-           +tree-sitter) ; the hipster dialect
+       ;; (go +lsp
+       ;;     +tree-sitter) ; the hipster dialect
        (graphql +lsp)    ; Give queries a REST
        ;;(haskell +lsp)  ; a language that's lazier than I am
        ;;hy              ; readability of scheme w/ speed of python
@@ -203,7 +205,10 @@
        ;;raku             ; the artist formerly known as perl6
        (rest +jq)               ; Emacs as a REST client
        ;;rst              ; ReST in peace
-       ;;(ruby +rails)    ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (ruby              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+        +rvm
+        +rails
+        +tree-sitter)
        (rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
         +lsp
         +tree-sitter)
