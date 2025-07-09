@@ -339,7 +339,8 @@
   "Insert custom text into the Doom dashboard."
   (insert "\"Do not proceed with a mess; messes just grow with time.\" ― Bjarne Stroustrup\n\n"))
 
-(setq fancy-splash-image "~/dotfiles/.config/doom/doom-emacs-color2.svg")
+;; (setq fancy-splash-image "~/dotfiles/.config/doom/doom-emacs-color2.svg")
+(setq fancy-splash-image "~/dotfiles/.config/doom/apollyon-emacs.png")
 
 ;; Find `doom-dashboard-widget-banner` in the list and insert after it
 (let ((pos (cl-position #'doom-dashboard-widget-banner +doom-dashboard-functions)))
